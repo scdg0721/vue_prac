@@ -1,0 +1,82 @@
+body {
+    background-color: #f0f0f0; /* 배경색 변경 */
+    text-align: center;
+    font-family: Arial, sans-serif; /* 폰트 변경 */
+}
+
+#app {
+    max-width: 400px; /* 컨테이너의 최대 너비 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 20px;
+    background-color: #fff; /* 컨테이너 배경색 변경 */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    width: 70%; /* 입력 창 너비 조절 */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007BFF; /* 버튼 배경색 변경 */
+    color: #fff; /* 버튼 텍스트 색상 변경 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 30%; /* 제출 버튼 너비 조절 */
+}
+
+hr {
+    border: 1px solid #ccc;
+    margin-top: 20px;   
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+li button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div id="app">
+        <!-- show -->
+        <ul>
+            <li v-for="todo in todo_list">{{todo}}</li>
+        </ul>
+        
+        <!-- create -->
+        <form v-on:submit.prevent="add_todo" v-show="!is_update">
+            <input type="text" placeholder="Add todo" v-model="todo_input">
+            <button type="submit">Add</button>
+        </form>
+        
+        <!-- delete -->
+        <form v-on:submit.prevent="delete_todo" v-show="!is_update">
+            <button type="submit">Delete</button>
+        </form>
+
+        <!-- update -->
+        <form v-on:submit.prevent="update_todo">
+            <button type="submit" v-show="!is_update">Update</button>
+        </form>
+
+        <form v-on:submit.prevent="add_todo">
+            <input type="text" placeholder="Update todo" v-model="update_inputs" v-show="is_update">
+            <button type="submit" v-show="is_update">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    todo_list: [],
+                    todo_input: '',
+                    update_inputs: '',
+                    is_update: false
+                }
+            },
+            methods: {
+                add_todo() {
+                    if (this.is_update === false) {
+                        let todo = this.todo_input;
+                        this.todo_list.push(todo);
+                        this.todo_input = '';
+                    } else {
+                        this.todo_list.pop();
+                        this.todo_list.push(this.update_inputs);
+                        this.update_inputs = '';
+                        this.is_update = false;
+                    }
+                },
+                
+                delete_todo() {
+                    this.todo_list.pop()
+                },
+
+                update_todo() {
+                    this.is_update = true;
+                }
+            }
+        })
+        
+        app.mount('#app')
+    </script>
+</body>
+</html>
+
+<!-- 
+    todo list => basic CRUD
+    1. add todo (C)
+        use local storage
+
+    2. show todo list (R)
+        get todos from local storage
+
+    3. update todos (U) => later
+
+    4. remove todos (D)
+        delete lastet value of localstorage
+
+ -->
